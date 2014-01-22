@@ -15,7 +15,14 @@ function initialize() {
     draggable: true
   });
 
-  google.maps.event.addListener(map, 'click', function(event){
+
+  var kmzLayer = new google.maps.KmlLayer({
+    url: 'https://dl.dropboxusercontent.com/u/44524752/smallerDemoForest_WGS84.kmz',
+    suppressInfoWindows: true,
+    map: map
+  });
+
+  google.maps.event.addListener(kmzLayer, 'click', function(event){
     var ignLat = event.latLng.lat();
     var ignLng = event.latLng.lng();
     
@@ -23,6 +30,9 @@ function initialize() {
 
     marker.setPosition(ignPoint);
   });
+  // var kmzLayer = new google.maps.KmlLayer('layers/smallerDemoForest_WGS84.kmz');
+  console.log(kmzLayer);
+  // kmzLayer.setMap(map);
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
@@ -36,9 +46,9 @@ function updateRange(sliderId, rangeId){
   rangeValue.setAttribute('value',formatFloat(slider.value, 0));
 }
 
-function formatFloat(x, c) { 
+function formatFloat(x, c) {
 
-  var power = Math.pow(10, c); 
+  var power = Math.pow(10, c);
 
-  return Math.round(power * x)/power; 
+  return Math.round(power * x)/power;
 }
