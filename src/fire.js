@@ -3,12 +3,20 @@ document.getElementById('runButton').addEventListener('click', fire, false);
 
 function fire(){
 
+  if (!ignPoint) {
+    alert('Please, select a location by clicking on the green highlighted area on the map.');
+    return;
+  }
+
+  $wspeed = $('#wspeed-range');
+  $wdirection = $('#wdirection-range');
+  $moisture = $('#moisture-range');
   var opts = {
-    ignitionPt: [41.7718400422817, -7.9167833239285],//[ignPoint.nb, ignPoint.ob],
-    U: 2,
-    alpha: 135,
+    ignitionPt: [ignPoint.d, ignPoint.e],
+    U: Number($wspeed.val()),
+    alpha: Number($wdirection.val()),
     std: 10,
-    moisture: 5,
+    moisture: Number($moisture.val()),
     rows: 100,
     cols: 100,
     height: 5000,
