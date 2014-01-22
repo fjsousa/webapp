@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Embers: Stochastic Fire Model">
+  <meta name="author" content="Flávio Sousa">
+  <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+  <title>Ember Fire App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel= "stylesheet" href="vendor/bootstrap/css/bootstrap.min.css"/>
+  <link rel= "stylesheet" href="style.css"/>
+
+</head>
+
+<body>
+
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Embers: Stochastic Fire Model</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <!-- <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li> -->
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-6", id="map-canvas"></div>
+
+      <div class="col-md-6">
+        <div class="jumbotron">
+        <h1>Embers</h1>
+        <p class="lead">Instructions: Place the cursor over the terrain and click "Run" to start the simulation.</p>
+        <p>
+          <input id="slider1" type="range" min="0" max="50" step="1" value = "10" onchange="updateRange( 'slider1', 'rangeValue1')"/>
+          <input id="rangeValue1" type="text" size="2" value="10" disabled="disabled" >
+          Wind Speed [m/s]
+        </p>
+        <p>
+          <input id="slider2" type="range" min="0" max="360" step="1" value = "135" onchange="updateRange( 'slider2', 'rangeValue2')"/>
+          <input id="rangeValue2" type="text" size="2" value="135" disabled="disabled" >
+          Wind Direction [º]
+        </p>
+        <p>
+          <input id="slider3" type="range" min="0" max="12" step="1" value = "5" onchange="updateRange( 'slider3', 'rangeValue3')"/>
+          <input id="rangeValue3" type="text" size="2" value="5" disabled="disabled" >
+          Moisture [%]
+        </p>
+        <p><a id="runButton" class="btn btn-primary btn-lg" href="#" role="button" >Run &raquo;</a></p>
+        </div>
+
+
+
+        <!-- <p class="lead"><b>Use this document as a way to quickly start any new project.
+        All you get is this text and a mostly barebones HTML document.</b></p> -->
+      </div>
+
+     </div>
+
+  </div><!-- /.container -->
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQrH44LmqRcTT52m5dQcyh7V3XxFF5aLI&sensor=false "></script>
+    <script src="src/init.js"></script>
+    <script src="src/fire.js"></script>
+
+  </body>
+
+  </html>
