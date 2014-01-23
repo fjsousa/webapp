@@ -1,16 +1,23 @@
 //ignPoint is a Global var
-document.getElementById('runButton').addEventListener('click', fire, false);
+document.getElementById('run-button').addEventListener('click', fire, false);
+
+$wspeed = $('#wspeed-range');
+$wdirection = $('#wdirection-range');
+$moisture = $('#moisture-range');
+
+$body = $('body');
+$run = $('#run-button');
 
 function fire(){
+
+  $body.css('cursor', 'wait');
+  $run.css('cursor', 'wait');
 
   if (!ignPoint) {
     alert('Please, select a location by clicking on the green highlighted area on the map.');
     return;
   }
 
-  $wspeed = $('#wspeed-range');
-  $wdirection = $('#wdirection-range');
-  $moisture = $('#moisture-range');
   var opts = {
     ignitionPt: [ignPoint.d, ignPoint.e],
     U: Number($wspeed.val()),
@@ -25,14 +32,15 @@ function fire(){
   };
 
   var url = 'http://embers.crowdprocess.com/embers-ws/runEmbers';
-
-  //var url = 'http://localhost:8083/runEmbers';
-
+  
   runDemo(opts, url, onData );
 
 }
 
 function onData(err, id) {
+
+  $body.css('cursor', 'auto');
+  $run.css('cursor', 'auto');
 
   if (err) {
     return console.log(err);

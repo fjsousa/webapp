@@ -33,8 +33,8 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Home</a></li>
-          <!-- <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li> -->
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -44,28 +44,28 @@
 
     <div class="row">
 
-      <div class="col-md-6", id="map-canvas"></div>
+      <div class="col-md-6" id="map-canvas"></div>
 
       <div class="col-md-6">
         <div class="jumbotron">
-        <h1>Embers</h1>
-        <p class="lead">Instructions: Place the cursor over the terrain and click "Run" to start the simulation.</p>
-        <p>
-          <input id="wspeed-range" type="range" min="0" max="5" step="0.01" value = "0" onchange="updateRange( 'wspeed-range', 'wspeed-input')"/>
-          <input id="wspeed-input" type="text" size="2" value="0" disabled="disabled" >
-          Wind Speed [m/s]
-        </p>
-        <p>
-          <input id="wdirection-range" type="range" min="0" max="360" step="1" value = "0" onchange="updateRange( 'wdirection-range', 'wdirection-input')"/>
-          <input id="wdirection-input" type="text" size="2" value="0" disabled="disabled" >
-          Wind Direction [º]
-        </p>
-        <p>
-          <input id="moisture-range" type="range" min="0" max="5" step="0.01" value = "0" onchange="updateRange( 'moisture-range', 'moisture-input')"/>
-          <input id="moisture-input" type="text" size="2" value="0" disabled="disabled" >
-          Moisture [%]
-        </p>
-        <p><a id="runButton" class="btn btn-primary btn-lg" href="#" role="button" >Run &raquo;</a></p>
+          <h1>Embers</h1>
+          <p class="lead">Instructions: Place the cursor over the terrain and click "Run" to start the simulation.</p>
+          <p>
+            <input id="wspeed-range" type="range" min="0" max="5" step="0.01" value = "0" onchange="updateRange( 'wspeed-range', 'wspeed-input')"/>
+            <input id="wspeed-input" type="text" size="2" value="0" disabled="disabled" >
+            Wind Speed [m/s]
+          </p>
+          <p>
+            <input id="wdirection-range" type="range" min="0" max="360" step="1" value = "0" onchange="updateRange( 'wdirection-range', 'wdirection-input')"/>
+            <input id="wdirection-input" type="text" size="2" value="0" disabled="disabled" >
+            Wind Direction [º]
+          </p>
+          <p>
+            <input id="moisture-range" type="range" min="0" max="5" step="0.01" value = "0" onchange="updateRange( 'moisture-range', 'moisture-input')"/>
+            <input id="moisture-input" type="text" size="2" value="0" disabled="disabled" >
+            Moisture [%]
+          </p>
+          <p><a id="run-button" class="btn btn-primary btn-lg" href="#" role="button" >Run &raquo;</a></p>
         </div>
 
 
@@ -75,7 +75,37 @@
       </div>
 
      </div>
+    <div class="row">
+      <div class="col-md-12" id="about-row">
 
+        <div class="jumbotron">
+          <h2 id="about">About</h2>
+          <p class="lead">Instructions: Place the cursor over the terrain and click "Run" to start the simulation.</p>
+          <small>A vida é bela! O monsto é vida!</small>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+        </div>
+        <div class="jumbotron">
+          <h2 id="contact">Contact</h2>
+          <p class="lead">Instructions: Place the cursor over the terrain and click "Run" to start the simulation.</p>
+          <small>Vamos à praia!</small>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
   </div><!-- /.container -->
 
 
