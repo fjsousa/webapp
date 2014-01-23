@@ -38,11 +38,11 @@ function onData(err, id) {
     return console.log(err);
   }
 
-  var id = parseInt(id);
+  id = parseInt(id);
 
   console.log('Simulation %d returned ...', id);
 
-  var url = 'http://embers.crowdprocess.com/embers-ws/outputs'
+  var url = 'http://embers.crowdprocess.com/embers-ws/outputs';
   //var url = 'http://localhost:8083/outputs'
 
   // kmlUrl.average;
@@ -55,7 +55,7 @@ function onData(err, id) {
     zoom: 11,
     center: ignPoint,
     mapTypeId: google.maps.MapTypeId.TERRAIN
-  }
+  };
 
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
@@ -83,7 +83,7 @@ function onData(err, id) {
 
 function runDemo (obj, url, callback) {
 
-  console.log('Starting request to embers-ws...')
+  console.log('Starting request to embers-ws...');
   
   var xmlhttp = new XMLHttpRequest();// new HttpRequest instance 
   xmlhttp.open('POST', url, true);
@@ -95,7 +95,7 @@ function runDemo (obj, url, callback) {
 
       callback(content.err, content.reqId);
     }
-  }
+  };
 
   xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
