@@ -59,6 +59,18 @@ function onData(err, id) {
 
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
+  var marker = new google.maps.Marker({
+    map: map,
+    title: 'Burn it, go ahead, burn it to the ground',
+    draggable: true
+  });
+
+  var kmzLayer = new google.maps.KmlLayer({
+    url: 'https://dl.dropboxusercontent.com/u/44524752/smallerDemoForest_WGS84.kmz',
+    suppressInfoWindows: true,
+    map: map
+  });
+
   var ctaLayer = new google.maps.KmlLayer({
     url: url + '/output_' + id + '-averageCase.kml'
   });
@@ -66,7 +78,7 @@ function onData(err, id) {
   console.log(ctaLayer);
 
   ctaLayer.setMap(map);
-
+  marker.setPosition(ignPoint);
 }
 
 function runDemo (obj, url, callback) {
