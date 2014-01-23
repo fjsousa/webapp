@@ -32,7 +32,7 @@ function fire(){
   };
 
   var url = 'http://embers.crowdprocess.com/embers-ws/runEmbers';
-  
+
   runDemo(opts, url, onData );
 
 }
@@ -51,11 +51,6 @@ function onData(err, id) {
   console.log('Simulation %d returned ...', id);
 
   var url = 'http://embers.crowdprocess.com/embers-ws/outputs';
-  //var url = 'http://localhost:8083/outputs'
-
-  // kmlUrl.average;
-  // kmlUrl.best;
-  // kmlUrl.average;
 
   console.log('Printing Layer...');
 
