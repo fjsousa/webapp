@@ -3,7 +3,7 @@ body {
   padding-top: 50px;
   margin: 0;
   background: url('images/Haiti_deforestation.jpg') no-repeat center center fixed;
-  display: compact;
+  /*display: compact;*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -17,10 +17,10 @@ h2 {
 }
 
 .row{
-  padding-top: 50;
+  padding-top: 50px;
 }
 
 #map-canvas {
-  height: 90%;
+  height: 679px;
   text-align: center;
 }
