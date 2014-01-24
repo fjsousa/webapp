@@ -41,13 +41,13 @@ function clearResults() {
 
 function fire(){
 
-  setCursorWaiting();
-  clearResults();
-
   if (!ignPoint) {
     alert('Please, select a location by clicking on the green highlighted area on the map.');
     return;
   }
+
+  setCursorWaiting();
+  clearResults();
 
   var opts = {
     ignitionPt: [ignPoint.d, ignPoint.e],
