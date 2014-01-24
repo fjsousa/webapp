@@ -1,0 +1,24 @@
+{
+  "name": "embers-webapp",
+  "version": "0.0.0",
+  "description": "Live on [www.embers.crowdprocess.com](http://www.embers.crowdprocess.com).",
+  "main": "index.js",
+  "bin": {
+    "embers-webapp": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fjsousa/webapp.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/fjsousa/webapp/issues"
+  },
+  "dependencies": {
+    "express": "~3.4.8"
+  }
+}
