@@ -1,28 +1,31 @@
+
+
+
+var map;
+var marker;
 var ignPoint;
 
-function initialize() {
+function initMap() {
   var mapOptions = {
     center: new google.maps.LatLng(41.7718400422817, -7.9167833239285),
     zoom: 12,
     mapTypeId: google.maps.MapTypeId.TERRAIN
   };
 
-  var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-
-   var marker = new google.maps.Marker({
+  map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+  marker = new google.maps.Marker({
     map: map,
     title: 'Burn it, go ahead, burn it to the ground',
     draggable: true
   });
 
-  // var kmzLayer = new google.maps.KmlLayer('layers/smallerDemoForest_WGS84.kmz');
-  var kmzLayer = new google.maps.KmlLayer({
+  var burnableLayer = new google.maps.KmlLayer({
     url: 'https://dl.dropboxusercontent.com/u/44524752/smallerDemoForest_WGS84.kmz',
     suppressInfoWindows: true,
     map: map
   });
 
-  google.maps.event.addListener(kmzLayer, 'click', function(event){
+  google.maps.event.addListener(burnableLayer, 'click', function(event){
     var ignLat = event.latLng.lat();
     var ignLng = event.latLng.lng();
     
@@ -31,7 +34,8 @@ function initialize() {
     marker.setPosition(ignPoint);
   });
 }
-google.maps.event.addDomListener(window, 'load', initialize);
+
+google.maps.event.addDomListener(window, 'load', initMap);
 
 function updateRange(sliderId, rangeId){
 

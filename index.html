@@ -34,9 +34,9 @@
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <!-- <li><a href="#contact">Contact</a></li> -->
         </ul>
-      </div><!--/.nav-collapse -->
+      </div>
     </div>
   </div>
 
@@ -66,6 +66,30 @@
             Moisture [%]
           </p>
           <p><a id="run-button" class="btn btn-primary btn-lg" href="#" role="button" >Run &raquo;</a></p>
+          <div id="results" style="display:none">
+            <small>
+              <p>Results</p>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <td># of Simulations</td>
+                      <td>Time</td>
+                      <td>Sequencial Time</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td id="simulations"># of Simulations</td>
+                      <td id="time">Time</td>
+                      <td id="seq-time">Sequencial Time</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </small>
+          </div>
+          
         </div>
 
 
@@ -80,31 +104,15 @@
 
         <div class="jumbotron">
           <h2 id="about">About</h2>
-          <p class="lead">Instructions: Place the cursor over the terrain and click "Run" to start the simulation.</p>
-          <small>A vida é bela! O monsto é vida!</small>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
+          <small>
+            <p class="lead">We are enabling fire analysts to use a tool that predicts fire behaviour with uncertainty quantification, a technique never used in real life due to processing power constrains.</p>
+            <p>In the end of the 60’s an aerospace engineer named Richard Rothermel came up with a way to quickly predict wildfire behavior. He was working for the Rocky Mountains Research Station, in a year buffeted by fires, when he and his research team were put in charge of aiding firemen with a predictive model. After a short time period in the lab, he came up with a bunch of equations, programmed a Texas Instruments calculator with his team and headed to an active wildfire to feed the model with local terrain and humidity data. After 40 years, the Rothermel model is still widely used.</p>
+            <p>Most of these models can be described as deterministic, meaning that for a certain set of inputs (wind velocity, vegetation moisture, etc) you always get the same result: the same fire front forecast. Another possible answer to this problem is to do stochastic simulations - an idea first elaborated by the fine folks at <a href="http://www.lasef.ist.utl.pt/">LASEF</a>. Instead of having a deterministic problem with deterministic variables, we now have input variables described by <a href="http://en.wikipedia.org/wiki/Probability_density_function">probability density functions (PDF)</a>.</p>
+            <p>Although each one of these simulations is not impressive from the viewpoint of computational load, getting all the results and post-processing the data, while trying to deliver a forecast in a time frame that can be of any use - before the forest becomes dust - can be quite a challenge.</p>
+            <p>That’s where CrowdProcess comes in. The processing of the several hundreds of simulations is spread among the browsers connected to the platform. Each web-browser computes one of the deterministic simulations, returning the result back to the client, where the data will be post-processed and shown in graphs useful to fire analysts. A fire analyst can then have a forecast that not only predicts if a certain area will burn but also the likelihood of that area burning.</p>
+            
+          </small>
         </div>
-        <div class="jumbotron">
-          <h2 id="contact">Contact</h2>
-          <p class="lead">Instructions: Place the cursor over the terrain and click "Run" to start the simulation.</p>
-          <small>Vamos à praia!</small>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-        </div>
-      </div>
     </div>
   </div><!-- /.container -->
 

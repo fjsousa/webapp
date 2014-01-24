@@ -8,10 +8,41 @@ $moisture = $('#moisture-range');
 $body = $('body');
 $run = $('#run-button');
 
-function fire(){
+$results = $('#results');
+$simulations = $('#simulations', $results);
+$time = $('#time', $results);
+$seqTime = $('#seq-time', $results);
 
+function setCursorWaiting(){
   $body.css('cursor', 'wait');
   $run.css('cursor', 'wait');
+}
+function setCursorAuto() {
+  $body.css('cursor', 'auto');
+  $run.css('cursor', 'auto');
+}
+
+function setResults(simulations, time, seqTime) {
+  // set values
+  $simulations.text(simulations);
+  $time.text(time);
+  $seqTime.text(seqTime);
+  // show
+  $results.show();
+}
+function clearResults() {
+  // hide
+  $results.hide();
+  // clear textues
+  $simulations.text('');
+  $time.text('');
+  $seqTime.text('');
+}
+
+function fire(){
+
+  setCursorWaiting();
+  clearResults();
 
   if (!ignPoint) {
     alert('Please, select a location by clicking on the green highlighted area on the map.');
@@ -39,8 +70,6 @@ function fire(){
 
 function onData(err, id) {
 
-  $body.css('cursor', 'auto');
-  $run.css('cursor', 'auto');
 
   if (err) {
     return console.log(err);
@@ -52,36 +81,15 @@ function onData(err, id) {
 
   var url = 'http://embers.crowdprocess.com/embers-ws/outputs';
 
-  console.log('Printing Layer...');
-
-  var mapOptions = {
-    zoom: 11,
-    center: ignPoint,
-    mapTypeId: google.maps.MapTypeId.TERRAIN
-  };
-
-  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-  var marker = new google.maps.Marker({
-    map: map,
-    title: 'Burn it, go ahead, burn it to the ground',
-    draggable: true
-  });
-
-  var kmzLayer = new google.maps.KmlLayer({
-    url: 'https://dl.dropboxusercontent.com/u/44524752/smallerDemoForest_WGS84.kmz',
-    suppressInfoWindows: true,
-    map: map
-  });
-
   var ctaLayer = new google.maps.KmlLayer({
     url: url + '/output_' + id + '-averageCase.kml'
   });
 
-  console.log(ctaLayer);
-
   ctaLayer.setMap(map);
-  marker.setPosition(ignPoint);
+
+  // CURSOR
+  setCursorAuto();
+  setResults(10000, 123, 1230000);
 }
 
 function runDemo (obj, url, callback) {
