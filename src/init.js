@@ -1,6 +1,3 @@
-
-
-
 var map;
 var marker;
 var ignPoint;
