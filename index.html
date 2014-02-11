@@ -13,7 +13,9 @@
   <title>Embers: Stochastic Fire Model</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel= "stylesheet" href="vendor/bootstrap/css/bootstrap.min.css"/>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
   <link rel= "stylesheet" href="style.css"/>
+  <link rel="icon" type="image/png" href="/images/favicon.png">
 
 </head>
 
@@ -67,10 +69,24 @@
             <input id="moisture-input" type="text" size="2" value="0" disabled="disabled" >
             Moisture [%]
           </p>
-          <p><a id="run-button" class="btn btn-primary btn-lg" href="#" role="button" >Run &raquo;</a></p>
+          <!-- <p><a id="run-button" class="btn btn-primary btn-lg" href="#" role="button" >Run &raquo;</a></p> -->
+          <button type="button"
+                  class="btn btn-primary start"
+                  id="run-button"
+                  data-loading-text="<i class='fa fa-spinner fa-spin'></i> Running"
+                  data-placement="right" title="This will take a few seconds."  data-trigger="manual">
+              <i class="fa fa-play"></i>
+              Run
+          </button>
           <div id="results" style="display:none">
             <small>
-              <p>Results</p>
+              <h4>Simulations</h4>
+              <select id="sim-hours" class="form-control"
+                      data-placement="top" title="Select different timespans."  data-trigger="manual">
+                <option value="120">2 hours</option>
+                <option value="180">3 hours</option>
+              </select>
+
               <div class="table-responsive">
                 <table class="table">
                   <thead>
@@ -94,10 +110,6 @@
           
         </div>
 
-
-
-        <!-- <p class="lead"><b>Use this document as a way to quickly start any new project.
-        All you get is this text and a mostly barebones HTML document.</b></p> -->
       </div>
 
      </div>
@@ -119,7 +131,9 @@
   </div><!-- /.container -->
 
   <a href="https://github.com/FireEmbers/embers"><img style="position: fixed; top: 0; right: 0; border: 0; z-index:2000" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
-
+  <p class="attribution text-center">
+    Fire in logo designed by <a href="/alanhussey">Alan Hussey</a> from the <a href="http://www.thenounproject.com">Noun Project</a>
+  </p>
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->

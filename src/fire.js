@@ -1,5 +1,4 @@
 //ignPoint is a Global var
-document.getElementById('run-button').addEventListener('click', fire, false);
 
 $wspeed = $('#wspeed-range');
 $wdirection = $('#wdirection-range');
@@ -12,25 +11,32 @@ $results = $('#results');
 $simulations = $('#simulations', $results);
 $time = $('#time', $results);
 $seqTime = $('#seq-time', $results);
+$simHours = $('#sim-hours');
 
-var layers = [];
+var simulations = [];
 
 function setCursorWaiting(){
+  $run.button('loading');
   $body.css('cursor', 'wait');
   $run.css('cursor', 'wait');
+  setTimeout(function(){$run.tooltip('show');}, 1000);
 }
 function setCursorAuto() {
   $body.css('cursor', 'auto');
   $run.css('cursor', 'auto');
+  $run.tooltip('hide');
+  $run.button('reset');
 }
 
-function setResults(simulations, time, seqTime) {
+function setResults(sims, time, seqTime) {
   // set values
-  $simulations.text(simulations);
+  $simulations.text(sims);
   $time.text(time);
   $seqTime.text(seqTime);
   // show
   $results.show();
+
+  setTimeout(function(){$simHours.tooltip('show');}, 500);
 }
 function clearResults() {
   // hide
@@ -48,10 +54,14 @@ function fire(){
     return;
   }
 
-  for (i = 0; i < layers.length; i++) {
-    layers[i].setMap(null);
+  for (i = 0; i < simulations.length; i++) {
+    var sim = simulations[i];
+    for (var i = 0; i < sim.layers.length; i++) {
+      sim.layers[i].setMap(null);
+    };
+    sim.layers = [];
   }
-  layers = [];
+  simulations = [];
 
   setCursorWaiting();
   clearResults();
@@ -93,19 +103,23 @@ function onData(err, maps) {
     map: map
   };
 
+  console.log('MAPS:',maps);
+
   for (i = 0; i < maps.length; i++) {
+
     var m = maps[i];
+    simulations.push(m);
+    simulations[i].layers = [];
+
     layerOpts.url = url + m.in;
-    layers.push(new google.maps.KmlLayer(layerOpts));
+    simulations[i].layers.push(new google.maps.KmlLayer(layerOpts));
+    if (i > 0) simulations[i].layers[0].setMap(null);
     layerOpts.url = url + m.out;
-    layers.push(new google.maps.KmlLayer(layerOpts));
-    break;
+    simulations[i].layers.push(new google.maps.KmlLayer(layerOpts));
+    if (i > 0) simulations[i].layers[1].setMap(null);
   }
 
-  for (i = 0; i < layers.length; i++) {
-    console.log( layers[i] );
-  }
-
+  console.log('SIMS', simulations);
   // CURSOR
   setCursorAuto();
   setResults(10000, 123, 1230000);
@@ -132,3 +146,23 @@ function runDemo (obj, url, callback) {
   var postContent = JSON.stringify(obj);
   xmlhttp.send(postContent);
 }
+
+function selectLayer (el) {
+
+  setTimeout(function(){$simHours.tooltip('hide');}, 500);
+  var val = $simHours.val();
+
+  for(i = 0; i < simulations.length; i++) {
+    var sim = simulations[i];
+    if (Number(val) === Number(sim.time)) {
+      sim.layers[0].setMap(map);
+      sim.layers[1].setMap(map);
+    } else {
+      sim.layers[0].setMap(null);
+      sim.layers[1].setMap(null);
+    }
+  }
+}
+
+document.getElementById('run-button').addEventListener('click', fire, false);
+document.getElementById('sim-hours').addEventListener('change', selectLayer, false);

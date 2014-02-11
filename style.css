@@ -23,3 +23,7 @@ h2 {
   height: 550px;
   text-align: center;
 }
+
+.attribution, .attribution a {
+  color: #eeeeee;
+}
