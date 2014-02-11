@@ -56,8 +56,8 @@ function fire(){
 
   for (i = 0; i < simulations.length; i++) {
     var sim = simulations[i];
-    for (var i = 0; i < sim.layers.length; i++) {
-      sim.layers[i].setMap(null);
+    for (j = 0; j < sim.layers.length; j++) {
+      sim.layers[j].setMap(null);
     };
     sim.layers = [];
   }
