@@ -13,6 +13,8 @@ $simulations = $('#simulations', $results);
 $time = $('#time', $results);
 $seqTime = $('#seq-time', $results);
 
+var layers = [];
+
 function setCursorWaiting(){
   $body.css('cursor', 'wait');
   $run.css('cursor', 'wait');
@@ -46,46 +48,63 @@ function fire(){
     return;
   }
 
+  for (i = 0; i < layers.length; i++) {
+    layers[i].setMap(null);
+  }
+  layers = [];
+
   setCursorWaiting();
   clearResults();
 
   var opts = {
-    ignitionPt: [ignPoint.d, ignPoint.e],
-    U: Number($wspeed.val()),
-    alpha: Number($wdirection.val()),
-    std: 10,
-    moisture: Number($moisture.val()),
-    rows: 100,
-    cols: 100,
-    height: 5000,
-    width: 5000
-
+    "ignitionPt": [ignPoint.d, ignPoint.e],
+    "u": Number($wspeed.val()),
+    "alpha": Number($wdirection.val()),
+    "std": 30,
+    "moisture": Number($moisture.val()),
+    // "rows": 200,
+    // "cols": 200,
+    "rows": 100,
+    "cols": 100,
+    "height": 10000,
+    "width": 10000,
+    // "n": 20
+    "n": 2
   };
 
-  var url = 'http://embers.crowdprocess.com/embers-ws/runEmbers';
+  console.log(JSON.stringify(opts));
 
+  var url = 'http://embers.crowdprocess.com/embers-ws/fullEmbers';
+  console.log('OPTS:',opts);
   runDemo(opts, url, onData );
 
 }
 
-function onData(err, id) {
-
+function onData(err, maps) {
 
   if (err) {
     return console.log(err);
   }
 
-  id = parseInt(id);
+  var url = 'http://embers.crowdprocess.com/embers-ws/outputs/';
+  var i;
+  var layerOpts = {
+    url: '',
+    map: map
+  };
 
-  console.log('Simulation %d returned ...', id);
+  for (i = 0; i < maps.length; i++) {
+    var m = maps[i];
+    layerOpts.url = url + m.in;
+    layers.push(new google.maps.KmlLayer(layerOpts));
+    layerOpts.url = url + m.out;
+    layers.push(new google.maps.KmlLayer(layerOpts));
+    break;
+  }
 
-  var url = 'http://embers.crowdprocess.com/embers-ws/outputs';
-
-  var ctaLayer = new google.maps.KmlLayer({
-    url: url + '/output_' + id + '-averageCase.kml'
-  });
-
-  ctaLayer.setMap(map);
+  for (i = 0; i < layers.length; i++) {
+    console.log( layers[i] );
+  }
 
   // CURSOR
   setCursorAuto();
@@ -103,8 +122,8 @@ function runDemo (obj, url, callback) {
   xmlhttp.onreadystatechange = function(){
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
       var content = JSON.parse(xmlhttp.responseText);
-
-      callback(content.err, content.reqId);
+      console.log('CONTENT:',content);
+      callback(content.err, content.maps);
     }
   };
 
