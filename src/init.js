@@ -13,7 +13,7 @@ function initMap() {
   marker = new google.maps.Marker({
     map: map,
     title: 'Burn it, go ahead, burn it to the ground',
-    draggable: true
+    draggable: false
   });
 
   var burnableLayer = new google.maps.KmlLayer({
