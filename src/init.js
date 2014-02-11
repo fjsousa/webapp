@@ -50,3 +50,10 @@ function formatFloat(x, c) {
 
   return Math.round(power * x)/power;
 }
+
+$(document).ready(function (){
+  console.log('oi');
+  $('#wspeed-range').tooltip('show');
+
+  setTimeout(function(){$('#wspeed-range').tooltip('hide');}, 3000);
+});
