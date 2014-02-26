@@ -1,0 +1,389 @@
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* Space out content a bit */
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+    margin: 40px 0;
+}
+
+.marketing p + h4 {
+    margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+    
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
+
+.jumbotron {
+    padding: 30px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: 200;
+    line-height: 2.25;
+    color: inherit;
+    background-color: #f5f5f6;
+}
+
+.jumbotron h1 {
+    line-height: 1;
+    color: inherit;
+}
+
+.jumbotron p {
+    line-height: 1.4;
+}
+
+.container .jumbotron {
+    border-radius: 2px;
+}
+
+@media screen and (min-width:768px) {
+    .jumbotron {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    .container .jumbotron {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    .jumbotron h1 {
+        font-size: 72px;
+    }
+}
+
+.popover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1010;
+    display: none;
+    max-width: 276px;
+    padding: 1px;
+    text-align: left;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 2px;
+    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    white-space: normal;
+}
+
+.popover.top {
+    margin-top: -10px;
+}
+
+.popover.right {
+    margin-left: 10px;
+}
+
+.popover.bottom {
+    margin-top: 10px;
+}
+
+.popover.left {
+    margin-left: -10px;
+}
+
+.popover-title {
+    margin: 0;
+    padding: 8px 14px;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 18px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ebebeb;
+    border-radius: 5px 5px 0 0;
+}
+
+.popover-content {
+    padding: 9px 14px;
+}
+
+.popover .arrow,.popover .arrow:after {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+}
+
+.popover .arrow {
+    border-width: 11px;
+}
+
+.popover .arrow:after {
+    border-width: 10px;
+    content: "";
+}
+
+.popover.top .arrow {
+    left: 50%;
+    margin-left: -11px;
+    border-bottom-width: 0;
+    border-top-color: #999;
+    border-top-color: rgba(0,0,0,0.25);
+    bottom: -11px;
+}
+
+.popover.top .arrow:after {
+    content: " ";
+    bottom: 1px;
+    margin-left: -10px;
+    border-bottom-width: 0;
+    border-top-color: #fff;
+}
+
+.popover.right .arrow {
+    top: 50%;
+    left: -11px;
+    margin-top: -11px;
+    border-left-width: 0;
+    border-right-color: #999;
+    border-right-color: rgba(0,0,0,0.25);
+}
+
+.popover.right .arrow:after {
+    content: " ";
+    left: 1px;
+    bottom: -10px;
+    border-left-width: 0;
+    border-right-color: #fff;
+}
+
+.popover.bottom .arrow {
+    left: 50%;
+    margin-left: -11px;
+    border-top-width: 0;
+    border-bottom-color: #999;
+    border-bottom-color: rgba(0,0,0,0.25);
+    top: -11px;
+}
+
+.popover.bottom .arrow:after {
+    content: " ";
+    top: 1px;
+    margin-left: -10px;
+    border-top-width: 0;
+    border-bottom-color: #fff;
+}
+
+.popover.left .arrow {
+    top: 50%;
+    right: -11px;
+    margin-top: -11px;
+    border-right-width: 0;
+    border-left-color: #999;
+    border-left-color: rgba(0,0,0,0.25);
+}
+
+.popover.left .arrow:after {
+    content: " ";
+    right: 1px;
+    border-right-width: 0;
+    border-left-color: #fff;
+    bottom: -10px;
+}
+
+body {
+    margin: 0;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body h1 {
+    margin-top: 0;
+    text-align: center;
+}
+
+#site-canvas {
+    background: url('../img/embers_background.jpg') no-repeat top center fixed;
+}
+
+.row {
+    padding-top: 40px;
+}
+
+.jumbotron .row {
+    padding-top: 0;
+    margin-bottom: 2px;
+}
+
+.jumbotron label {
+    margin-top: 12px;
+    font-size: small;
+}
+
+.jumbotron .embers-range {
+    width: 55%;
+}
+
+.map {
+    height: 250px;
+    width: 80%;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.attribution,.attribution a {
+    color: #eee;
+    text-shadow: 0 0 5px rgba(0,0,0,0.8);
+}
+
+.embers-logo {
+    height: 50px;
+}
+
+.embers-range {
+    float: right;
+    margin-top: 18px;
+    margin-right: 5px;
+}
+
+.embers-input {
+    float: right;
+    text-align: right;
+    width: 42px;
+}
+
+#github-ribbon {
+    display: none;
+}
+
+.no-mobile {
+    display: none;
+}
+
+.progress {
+    margin-top: 18px;
+}
+
+.progress .progress-bar-info {
+    background-color: #1aa5d6;
+}
+
+@media only screen and (min-width:992px) {
+    #github-ribbon {
+        position: absolute;
+        position: fixed;
+        top: 80px;
+        display: block;
+    }
+
+    .map {
+        width: 100%;
+        height: 550px;
+        margin-bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .no-mobile {
+        display: block;
+    }
+
+    .jumbotron .row {
+        margin-top: 15px;
+    }
+
+    .jumbotron label,.jumbotron span {
+        margin-top: 0;
+        font-size: medium;
+    }
+
+    .jumbotron .embers-range {
+        float: right;
+        margin-top: 14px;
+        margin-right: 5px;
+    }
+}
+
+@media only screen and (min-width:1200px) {
+    #github-ribbon {
+        position: fixed;
+        top: 100px;
+    }
+
+    .jumbotron label,.jumbotron span {
+        font-size: large;
+    }
+}
