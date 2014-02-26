@@ -309,6 +309,7 @@ body h1 {
 }
 
 .embers-logo {
+    margin-left: 10px; 
     height: 50px;
 }
 
@@ -374,6 +375,9 @@ body h1 {
         float: right;
         margin-top: 14px;
         margin-right: 5px;
+    }
+    .nav {
+        margin-top: 15px;
     }
 }
 
